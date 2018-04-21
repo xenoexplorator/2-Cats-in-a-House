@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: d3e86c99121eb5847b4d41469a13bc86
+timeCreated: 1524349822
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: WRESTLEMANIA
+  fontNames:
+  - WRESTLEMANIA
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

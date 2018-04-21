@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tower_Friendship : MonoBehaviour {
 
-    public CircleCollider2D collider;
     private List<GameObject> targets;
     private int clock = 0;
     private int attackSpeed = 30;
