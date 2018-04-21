@@ -47,29 +47,32 @@ public class Spawner : MonoBehaviour {
     }
 
     void FixedUpdate () {
-        frameCount++;
-        if((frameCount % spawnSpeed == 0) && (SpawnList.Count > 0))
+        if (IsSpawning)
         {
-            switch (SpawnList.First())
+            frameCount++;
+            if ((frameCount % spawnSpeed == 0) && (SpawnList.Count > 0))
             {
-                case CreatureType.SeaMonster:
-                    spawnSpeed = 30;
-                    var tempSeaman = Instantiate(SeamanMonster, SeamanSpawnPoint.transform.position, Quaternion.identity);
-                    tempSeaman.GetComponent<Woofers>().path = SeamanPath;
-                    break;
-                case CreatureType.Werewolf:
-                    spawnSpeed = 16;
-                    var tempWerewolf = Instantiate(WerewolfMonster, WooferSpawnPoint.transform.position, Quaternion.identity);
-                    tempWerewolf.GetComponent<Woofers>().path = WooferPath;
-                    break;
-                case CreatureType.Zombie:
-                    spawnSpeed = 12;
-                    var tempZombie = Instantiate(ZombieMonster, ZombieSpawnPoint.transform.position, Quaternion.identity);
-                    tempZombie.GetComponent<Woofers>().path = ZombiePath;
-                    break;
+                switch (SpawnList.First())
+                {
+                    case CreatureType.SeaMonster:
+                        spawnSpeed = 30;
+                        var tempSeaman = Instantiate(SeamanMonster, SeamanSpawnPoint.transform.position, Quaternion.identity);
+                        tempSeaman.GetComponent<Woofers>().path = SeamanPath;
+                        break;
+                    case CreatureType.Werewolf:
+                        spawnSpeed = 16;
+                        var tempWerewolf = Instantiate(WerewolfMonster, WooferSpawnPoint.transform.position, Quaternion.identity);
+                        tempWerewolf.GetComponent<Woofers>().path = WooferPath;
+                        break;
+                    case CreatureType.Zombie:
+                        spawnSpeed = 12;
+                        var tempZombie = Instantiate(ZombieMonster, ZombieSpawnPoint.transform.position, Quaternion.identity);
+                        tempZombie.GetComponent<Woofers>().path = ZombiePath;
+                        break;
+                }
+                SpawnList.RemoveAt(0);
+                frameCount = 0;
             }
-            SpawnList.RemoveAt(0);
-            frameCount = 0;
         }
 	}
 }

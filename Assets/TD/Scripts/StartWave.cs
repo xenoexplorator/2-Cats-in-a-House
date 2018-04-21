@@ -20,5 +20,6 @@ public class StartWave : MonoBehaviour {
         {
             tower.GetComponent<CircleCollider2D>().enabled = true;
         }
+        GameObject.FindObjectOfType<Spawner>().IsSpawning = true;
     }
 }

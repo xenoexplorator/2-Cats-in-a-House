@@ -19,10 +19,12 @@ public class Woofers : MonoBehaviour {
     public CreatureType type;
     public int Max_HP;
     private int Current_HP;
+    public List<GameObject> targetedBy;
 
 	void Start () {
         Current_HP = Max_HP;
         Max_Speed = speed;
+        targetedBy = new List<GameObject>();
     }
 	
 	void Update () {
@@ -52,6 +54,14 @@ public class Woofers : MonoBehaviour {
         
     }
 
+    private void OnDestroy()
+    {
+        foreach(GameObject g in targetedBy)
+        {
+            g.SendMessage("RemoveTarget", this.gameObject);
+        }
+    }
+
     private void DealDamage()
     {
         Destroy(this.gameObject);
@@ -71,10 +81,14 @@ public class Woofers : MonoBehaviour {
             transform.position = new Vector3(pos_x + movement.x, pos_y + movement.y, transform.position.z);
     }
 
-    public void ReceiveDamage(int damage)
+    public bool ReceiveDamage(int damage)
     {
         Current_HP = Current_HP - damage;
         if (Current_HP < 0)
+        {
             Destroy(this.gameObject);
+            return true;
+        }
+        return false;
     }
 }
