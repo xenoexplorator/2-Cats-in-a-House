@@ -56,7 +56,7 @@ public class Rythm : MonoBehaviour {
 	void FixedUpdate() {
 		tickCount++;
 		char place;
-		if (stepChart.TryGetValue(tickCount + 100, out place)) {
+		if (stepChart.TryGetValue(tickCount, out place)) {
 			int index = place - '1';
 			var posX = -1.5f + index * 1.0f;
 			var step = Instantiate<Step>(
