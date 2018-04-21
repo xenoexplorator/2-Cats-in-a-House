@@ -14,15 +14,18 @@ public class Woofers : MonoBehaviour {
     public PathList path;
     private int targetNode = 0;
     public float speed = 0.018f;
+    private float Max_Speed;
     public float epsilon = 0.1f;
     public CreatureType type;
+    private bool IsMoving = false;
+    public int Max_HP;
+    private int Current_HP;
 
-	// Use this for initialization
 	void Start () {
-        
+        Current_HP = Max_HP;
+        Max_Speed = speed;
     }
 	
-	// Update is called once per frame
 	void Update () {
         var pos_x = transform.position.x;
         var pos_y = transform.position.y;
@@ -34,13 +37,13 @@ public class Woofers : MonoBehaviour {
         if(CloseEnough(pos_x, pos_y, target_x, target_y))
         {
             targetNode++;
-            if(type == CreatureType.SeaMonster)
-            {
-                if(targetNode % 2 == 0)
-                    speed = speed * 2;
-                else
-                    speed = speed / 2;
-            }
+            //if(type == CreatureType.SeaMonster)
+            //{
+            //    if(targetNode % 2 == 0)
+            //        speed = speed * 2;
+            //    else
+            //        speed = speed / 2;
+            //}
             
             if (targetNode == path.nodes.Length)
             {
@@ -48,6 +51,11 @@ public class Woofers : MonoBehaviour {
             }
         }
         
+    }
+
+    public void StartMoving()
+    {
+        IsMoving = true;
     }
 
     private void DealDamage()
@@ -65,7 +73,17 @@ public class Woofers : MonoBehaviour {
 
     private void Walk(float pos_x, float pos_y, float target_x, float target_y)
     {
-        Vector2 movement = new Vector2(target_x - pos_x, target_y - pos_y).normalized * speed;
-        transform.position = new Vector3(pos_x + movement.x, pos_y + movement.y, transform.position.z);
+        if(IsMoving)
+        {
+            Vector2 movement = new Vector2(target_x - pos_x, target_y - pos_y).normalized * speed;
+            transform.position = new Vector3(pos_x + movement.x, pos_y + movement.y, transform.position.z);
+        }
+    }
+
+    public void ReceiveDamage(int damage)
+    {
+        Current_HP = Current_HP - damage;
+        if (Current_HP < 0)
+            Destroy(this.gameObject);
     }
 }

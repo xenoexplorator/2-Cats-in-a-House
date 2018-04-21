@@ -9,6 +9,7 @@ TagManager:
   - WerewolfPath
   - ZombiePath
   - SeamanPath
+  - Monster
   layers:
   - Default
   - TransparentFX
