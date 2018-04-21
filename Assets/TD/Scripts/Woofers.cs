@@ -27,6 +27,9 @@ public class Woofers : MonoBehaviour {
     private Animator animationCrtl;
 
     [SerializeField]
+    private Transform visuals;
+
+    [SerializeField]
     private string deathAnimationTriggerName = "OnDeath";
 
     void Start () {
@@ -35,6 +38,11 @@ public class Woofers : MonoBehaviour {
     }
 	
 	void Update () {
+        if(path == null)
+        {
+            return;
+        }
+
         var pos_x = transform.position.x;
         var pos_y = transform.position.y;
         var target_x = path.nodes[targetNode].transform.position.x;
@@ -77,8 +85,17 @@ public class Woofers : MonoBehaviour {
 
     private void Walk(float pos_x, float pos_y, float target_x, float target_y)
     {
-            Vector2 movement = new Vector2(target_x - pos_x, target_y - pos_y).normalized * (speed *(speed_Modifier/100));
-            transform.position = new Vector3(pos_x + movement.x, pos_y + movement.y, pos_y + movement.y);
+        Vector2 movement = new Vector2(target_x - pos_x, target_y - pos_y).normalized * (speed *(speed_Modifier/100));
+        if(visuals != null)
+        {
+            var goingLeft = target_x - pos_x > 0;
+            // Flipping visuals
+            if((visuals.localScale.x < 0 && goingLeft) || (visuals.localScale.x > 0 && !goingLeft))
+            {
+                visuals.localScale = new Vector3(visuals.localScale.x * -1, visuals.localScale.y, visuals.localScale.z);
+            }
+        }
+        transform.position = new Vector3(pos_x + movement.x, pos_y + movement.y, pos_y + movement.y);
     }
 
     public void IncreaseSlow()
@@ -102,6 +119,7 @@ public class Woofers : MonoBehaviour {
         return false;
     }
 
+    [ContextMenu("Kill ennemy")]
     private void KillUnit()
     {
         if(animationCrtl == null)
