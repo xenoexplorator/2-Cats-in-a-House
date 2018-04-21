@@ -21,7 +21,15 @@ public class Woofers : MonoBehaviour {
     private int Current_HP;
     public List<GameObject> targetedBy;
 
-	void Start () {
+    [Header("Animation")]
+
+    [SerializeField]
+    private Animator animationCrtl;
+
+    [SerializeField]
+    private string deathAnimationTriggerName = "OnDeath";
+
+    void Start () {
         Current_HP = Max_HP;
         targetedBy = new List<GameObject>();
     }
@@ -95,9 +103,21 @@ public class Woofers : MonoBehaviour {
         Current_HP = Current_HP - damage;
         if (Current_HP < 0)
         {
-            Destroy(this.gameObject);
+            KillUnit();
             return true;
         }
         return false;
     }
+
+    private void KillUnit()
+    {
+        animationCrtl.SetTrigger(deathAnimationTriggerName);
+    }
+
+    private void OnDeathAnimDone()
+    {
+        Destroy(this.gameObject);
+    }
+
+
 }
