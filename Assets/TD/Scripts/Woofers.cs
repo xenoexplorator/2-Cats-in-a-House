@@ -38,7 +38,7 @@ public class Woofers : MonoBehaviour {
     }
 	
 	void Update () {
-        if(path == null)
+        if(path == null || Current_HP <= 0)
         {
             return;
         }

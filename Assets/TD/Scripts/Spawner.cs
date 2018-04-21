@@ -22,6 +22,15 @@ public class Spawner : MonoBehaviour {
     private int frameCount = 0;
     private int spawnSpeed = 20;
 
+    [SerializeField]
+    private int zombiSpawnRate = 12;
+
+    [SerializeField]
+    private int seaMonsterSpawnRate = 30;
+
+    [SerializeField]
+    private int werewolfSpawnRate = 16;
+
     List<CreatureType> SpawnList;
 
     void Start()
@@ -55,17 +64,17 @@ public class Spawner : MonoBehaviour {
                 switch (SpawnList.First())
                 {
                     case CreatureType.SeaMonster:
-                        spawnSpeed = 30;
+                        spawnSpeed = seaMonsterSpawnRate;
                         var tempSeaman = Instantiate(SeamanMonster, SeamanSpawnPoint.transform.position, Quaternion.identity);
                         tempSeaman.GetComponent<Woofers>().path = SeamanPath;
                         break;
                     case CreatureType.Werewolf:
-                        spawnSpeed = 16;
+                        spawnSpeed = werewolfSpawnRate;
                         var tempWerewolf = Instantiate(WerewolfMonster, WooferSpawnPoint.transform.position, Quaternion.identity);
                         tempWerewolf.GetComponent<Woofers>().path = WooferPath;
                         break;
                     case CreatureType.Zombie:
-                        spawnSpeed = 12;
+                        spawnSpeed = zombiSpawnRate;
                         var tempZombie = Instantiate(ZombieMonster, ZombieSpawnPoint.transform.position, Quaternion.identity);
                         tempZombie.GetComponent<Woofers>().path = ZombiePath;
                         break;
