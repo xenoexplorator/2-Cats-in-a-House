@@ -111,6 +111,18 @@ public class Woofers : MonoBehaviour {
 
     private void KillUnit()
     {
+        if(animationCrtl == null)
+        {
+            Debug.LogWarning("Ennemy '" + gameObject.name + "' did not have animation controller, destroying game object");
+            Destroy(this.gameObject);
+        }
+
+        var collider = GetComponent<Collider>();
+        if(collider != null)
+        {
+            collider.enabled = false;
+        }
+
         animationCrtl.SetTrigger(deathAnimationTriggerName);
     }
 
