@@ -16,7 +16,10 @@ public class ProjectileOfLove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (target == null)
+        {
             Destroy(this.gameObject);
+            return;
+        }
 
         var pos_x = transform.position.x;
         var pos_y = transform.position.y;
