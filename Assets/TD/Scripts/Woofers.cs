@@ -77,7 +77,7 @@ public class Woofers : MonoBehaviour {
     private void Walk(float pos_x, float pos_y, float target_x, float target_y)
     {
             Vector2 movement = new Vector2(target_x - pos_x, target_y - pos_y).normalized * (speed *(speed_Modifier/100));
-            transform.position = new Vector3(pos_x + movement.x, pos_y + movement.y, transform.position.z);
+            transform.position = new Vector3(pos_x + movement.x, pos_y + movement.y, pos_y + movement.y);
     }
 
     public void IncreaseSlow()

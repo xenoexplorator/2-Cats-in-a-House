@@ -16,7 +16,9 @@ public class AddTurretButton : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0) && InPlacingMode && DropIsValid)
         {
-            Instantiate(ToCreateOnClick, SpriteThatFollowsTheMouse.transform.position, Quaternion.identity);
+
+            var instancePosition = new Vector3(SpriteThatFollowsTheMouse.transform.position.x, SpriteThatFollowsTheMouse.transform.position.y, SpriteThatFollowsTheMouse.transform.position.y);
+            Instantiate(ToCreateOnClick, instancePosition, Quaternion.identity);
             Destroy(CurrentlyPointedTile);
             CurrentlyPointedTile = null;
             DropOutOfPlacingMode();
