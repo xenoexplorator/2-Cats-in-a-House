@@ -10,6 +10,7 @@ TagManager:
   - ZombiePath
   - SeamanPath
   - Monster
+  - Spawner
   layers:
   - Default
   - TransparentFX

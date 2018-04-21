@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26154939d14fd8d42bbbde6e59011909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 58171833054282012}
+  bullet: {fileID: 1767002721983834, guid: 86f99f13a5d6ae54a84ef89f9cb838b2, type: 2}
 --- !u!212 &212066714309366848
 SpriteRenderer:
   m_ObjectHideFlags: 1
