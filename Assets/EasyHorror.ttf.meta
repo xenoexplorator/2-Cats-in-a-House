@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b530d89c6c099084eb21c5cc958233a4
+timeCreated: 1524350630
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: EasyHorror
+  fontNames:
+  - EasyHorror
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
