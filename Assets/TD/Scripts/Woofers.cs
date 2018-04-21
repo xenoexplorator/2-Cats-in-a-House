@@ -37,13 +37,6 @@ public class Woofers : MonoBehaviour {
         if(CloseEnough(pos_x, pos_y, target_x, target_y))
         {
             targetNode++;
-            //if(type == CreatureType.SeaMonster)
-            //{
-            //    if(targetNode % 2 == 0)
-            //        speed = speed * 2;
-            //    else
-            //        speed = speed / 2;
-            //}
             
             if (targetNode == path.nodes.Length)
             {
@@ -63,6 +56,7 @@ public class Woofers : MonoBehaviour {
 
     private void DealDamage()
     {
+        FindObjectOfType<GameState>().DealDamage(Current_HP);
         Destroy(this.gameObject);
     }
 
