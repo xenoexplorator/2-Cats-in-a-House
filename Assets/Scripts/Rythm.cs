@@ -56,12 +56,12 @@ public class Rythm : MonoBehaviour {
 		if (!playing) return;
 		tickCount++;
 		char place;
-		if (stepChart.TryGetValue(tickCount + 120, out place)) {
+		if (stepChart.TryGetValue(tickCount + 116, out place)) {
 			int index = place - '1';
 			var posX = transform.position.x - 3f + index * 2.0f;
 			var step = Instantiate<Step>(
 					stepPrefab,
-					new Vector3(posX, transform.position.y - 9.6f, 0),
+					new Vector3(posX, transform.position.y - 9.28f, 0),
 					rotations[index],
 					transform);
 			incoming[index].Enqueue(step);
