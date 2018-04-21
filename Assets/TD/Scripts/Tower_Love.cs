@@ -26,24 +26,6 @@ public class Tower_Love : MonoBehaviour {
         clock++;
 	}
 
-    //void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    var other = collision.otherRigidbody.gameObject;
-    //    if (other.tag == "Monster")
-    //    {
-    //        targets.Add(other);
-    //    }
-    //}
-
-    //void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    var other = collision.otherRigidbody.gameObject;
-    //    if (targets.Contains(other))
-    //    {
-    //        targets.Remove(other);
-    //    }
-    //}
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Monster")

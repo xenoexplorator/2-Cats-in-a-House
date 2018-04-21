@@ -4,13 +4,56 @@ using UnityEngine;
 
 public class Tower_Friendship : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public CircleCollider2D collider;
+    private List<GameObject> targets;
+    private int clock = 0;
+    private int attackSpeed = 30;
+    public GameObject projectile;
+
+    // Use this for initialization
+    void Start()
+    {
+        targets = new List<GameObject>();
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if ((targets.Count > 0) && (clock % attackSpeed == 0))
+        {
+            clock = 0;
+            AttackMonster();
+        }
+        clock++;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Monster")
+        {
+            targets.Add(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (targets.Contains(other.gameObject))
+        {
+            targets.Remove(other.gameObject);
+        }
+    }
+
+    void AttackMonster()
+    {
+        foreach(GameObject g in targets)
+        {
+            Instantiate(projectile, transform);
+            g.GetComponent<Woofers>().ReceiveDamage(1);
+        }
+    }
+
+    public void RemoveTarget(GameObject toRemove)
+    {
+        targets.Remove(toRemove);
+    }
 }

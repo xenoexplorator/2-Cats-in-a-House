@@ -14,7 +14,7 @@ public class Woofers : MonoBehaviour {
     public PathList path;
     private int targetNode = 0;
     public float speed = 0.018f;
-    private float Max_Speed;
+    private float speed_Modifier = 100;
     public float epsilon = 0.1f;
     public CreatureType type;
     public int Max_HP;
@@ -23,7 +23,6 @@ public class Woofers : MonoBehaviour {
 
 	void Start () {
         Current_HP = Max_HP;
-        Max_Speed = speed;
         targetedBy = new List<GameObject>();
     }
 	
@@ -77,8 +76,18 @@ public class Woofers : MonoBehaviour {
 
     private void Walk(float pos_x, float pos_y, float target_x, float target_y)
     {
-            Vector2 movement = new Vector2(target_x - pos_x, target_y - pos_y).normalized * speed;
+            Vector2 movement = new Vector2(target_x - pos_x, target_y - pos_y).normalized * (speed *(speed_Modifier/100));
             transform.position = new Vector3(pos_x + movement.x, pos_y + movement.y, transform.position.z);
+    }
+
+    public void IncreaseSlow()
+    {
+        speed_Modifier = (speed_Modifier * 0.8f);
+    }
+
+    public void DecreaseSlow()
+    {
+        speed_Modifier = (speed_Modifier / 0.8f);
     }
 
     public bool ReceiveDamage(int damage)
