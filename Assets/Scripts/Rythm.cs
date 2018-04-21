@@ -36,7 +36,7 @@ public class Rythm : MonoBehaviour {
 			lastTick = tickCount;
 		}
 		for (int i = 0; i < 4; i++) {
-			while (incoming[i].Count > 0 && incoming[i].Peek().PositionY >= 6) {
+			while (incoming[i].Count > 0 && incoming[i].Peek().PositionY >= transform.position.y+2) {
 				Destroy(incoming[i].Dequeue().gameObject);
 				//gameState.SpawnMonster();
 			}
@@ -58,10 +58,10 @@ public class Rythm : MonoBehaviour {
 		char place;
 		if (stepChart.TryGetValue(tickCount, out place)) {
 			int index = place - '1';
-			var posX = -1.5f + index * 1.0f;
+			var posX = transform.position.x - 3f + index * 2.0f;
 			var step = Instantiate<Step>(
 					stepPrefab,
-					new Vector3(posX, 0, 0),
+					new Vector3(posX, transform.position.y-8, 0),
 					rotations[index],
 					transform);
 			incoming[index].Enqueue(step);
