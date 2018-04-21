@@ -7,6 +7,7 @@ public class Rythm : MonoBehaviour {
 	public TextAsset chartFile;
 	public GameState gameState;
 	private int tickCount = 0;
+	private int lastTick = 0;
 	private Queue<Step>[] incoming = new Queue<Step>[4];
 	private KeyCode[] keys = new[] {
 		KeyCode.LeftArrow,
@@ -30,7 +31,10 @@ public class Rythm : MonoBehaviour {
 	}
 	
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.Space)) Debug.Log("step:"+tickCount);
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			Debug.Log("step:"+tickCount + "(+" + (tickCount - lastTick) + ")");
+			lastTick = tickCount;
+		}
 		for (int i = 0; i < 4; i++) {
 			while (incoming[i].Count > 0 && incoming[i].Peek().PositionY >= 6) {
 				Destroy(incoming[i].Dequeue().gameObject);
@@ -41,7 +45,8 @@ public class Rythm : MonoBehaviour {
 				var accuracy = Math.Abs(nextStep.PositionY - transform.position.y);
 				if (accuracy < 0.25) {
 					gameState.Currency += 100;
-					Debug.Log("tick=" + tickCount);
+					Debug.Log("step:"+tickCount + "(+" + (tickCount - lastTick) + ") %" + accuracy);
+					lastTick = tickCount;
 					Destroy(incoming[i].Dequeue().gameObject);
 				}
 			}
