@@ -9,6 +9,7 @@ public class AddTurretButton : MonoBehaviour {
     private GameObject SpriteThatFollowsTheMouse;
     private bool InPlacingMode = false;
     private bool DropIsValid = false;
+    private GameObject CurrentlyPointedTile;
 
     // Update is called once per frame
     void Update()
@@ -16,6 +17,8 @@ public class AddTurretButton : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && InPlacingMode && DropIsValid)
         {
             Instantiate(ToCreateOnClick, SpriteThatFollowsTheMouse.transform.position, Quaternion.identity);
+            Destroy(CurrentlyPointedTile);
+            CurrentlyPointedTile = null;
             DropOutOfPlacingMode();
         }
         if (Input.GetMouseButtonDown(1) && InPlacingMode) DropOutOfPlacingMode();
@@ -42,9 +45,11 @@ public class AddTurretButton : MonoBehaviour {
                 if (hit.collider.gameObject.tag == "Node")
                 {
                     DropIsValid = true;
+                CurrentlyPointedTile = hit.collider.gameObject;
                     return new Vector2(hit.collider.gameObject.transform.position.x, hit.collider.gameObject.transform.position.y);
                 }
             }
+        CurrentlyPointedTile = null;
         DropIsValid = false;
         return new Vector2(0,0);
     }
