@@ -1188,6 +1188,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1258375892800726, guid: fb7b5546d96456a4191c054c4ae20f5b, type: 2}
+      propertyPath: m_TagString
+      value: InputField
+      objectReference: {fileID: 0}
+    - target: {fileID: 82854078889999324, guid: fb7b5546d96456a4191c054c4ae20f5b,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82854078889999324, guid: fb7b5546d96456a4191c054c4ae20f5b,
+        type: 2}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb7b5546d96456a4191c054c4ae20f5b, type: 2}
   m_IsPrefabParent: 0

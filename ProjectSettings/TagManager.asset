@@ -11,6 +11,7 @@ TagManager:
   - SeamanPath
   - Monster
   - Spawner
+  - InputField
   layers:
   - Default
   - TransparentFX
