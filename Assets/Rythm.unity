@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepPrefab: {fileID: 114626897220011880, guid: 5ef5fdfc36c53c547ac4c198f5147fed,
     type: 2}
+  chartFile: {fileID: 4900000, guid: cca867e5af8cc594bb99c3d1da16bf0e, type: 3}
 --- !u!4 &513555696
 Transform:
   m_ObjectHideFlags: 0
