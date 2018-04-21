@@ -17,7 +17,6 @@ public class Woofers : MonoBehaviour {
     private float Max_Speed;
     public float epsilon = 0.1f;
     public CreatureType type;
-    private bool IsMoving = false;
     public int Max_HP;
     private int Current_HP;
 
@@ -53,11 +52,6 @@ public class Woofers : MonoBehaviour {
         
     }
 
-    public void StartMoving()
-    {
-        IsMoving = true;
-    }
-
     private void DealDamage()
     {
         Destroy(this.gameObject);
@@ -73,11 +67,8 @@ public class Woofers : MonoBehaviour {
 
     private void Walk(float pos_x, float pos_y, float target_x, float target_y)
     {
-        if(IsMoving)
-        {
             Vector2 movement = new Vector2(target_x - pos_x, target_y - pos_y).normalized * speed;
             transform.position = new Vector3(pos_x + movement.x, pos_y + movement.y, transform.position.z);
-        }
     }
 
     public void ReceiveDamage(int damage)

@@ -20,9 +20,5 @@ public class StartWave : MonoBehaviour {
         {
             tower.GetComponent<CircleCollider2D>().enabled = true;
         }
-        foreach (GameObject monster in GameObject.FindGameObjectsWithTag("Monster"))
-        {
-            monster.SendMessage("StartMoving");
-        }
     }
 }
