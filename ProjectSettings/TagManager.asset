@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Node
   - Tower
+  - WerewolfPath
+  - ZombiePath
+  - SeamanPath
   layers:
   - Default
   - TransparentFX
