@@ -51,7 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc043f76f6a304459e20d878a61eb4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 2
+  distance_x: 2
+  distance_y: 1
   origin_x: 0
-  origin_y: 0
+  origin_y: 4
   tile: {fileID: 1218229650223570, guid: e841d612b4368394baccf27a13ba7fa9, type: 2}
