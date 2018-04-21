@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Tower_Love : MonoBehaviour {
 
-    public CircleCollider2D collider;
     private List<GameObject> targets;
     public GameObject bullet;
     private int clock = 0;

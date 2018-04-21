@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tower_Hope : MonoBehaviour {
 
-    public CircleCollider2D collider;
     private List<GameObject> targets;
     public SpriteRenderer projectile;
 
