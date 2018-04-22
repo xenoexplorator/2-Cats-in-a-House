@@ -66,7 +66,7 @@ public class AddTurretButton : MonoBehaviour {
         }
     }
 
-    public void OnMouseDown()
+    public void IsClicked()
     {
         if (!InPlacingMode)
         {
