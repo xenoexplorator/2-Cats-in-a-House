@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 58063641679161072}
   - component: {fileID: 95947880227946192}
   - component: {fileID: 114809651245840584}
+  - component: {fileID: 114081183450991892}
   m_Layer: 0
   m_Name: Yelhsa
   m_TagString: Monster
@@ -334,6 +335,27 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114081183450991892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1689357547835864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7018cf5c8c2655f488c649f7253b60e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: {fileID: 0}
+  speed: 0.014
+  epsilon: 0.1
+  type: 3
+  Max_HP: 2000
+  targetedBy: []
+  IsMoving: 1
+  animationCrtl: {fileID: 0}
+  visuals: {fileID: 0}
+  deathAnimationTriggerName: OnDeath
 --- !u!114 &114809651245840584
 MonoBehaviour:
   m_ObjectHideFlags: 1

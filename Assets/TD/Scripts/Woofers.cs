@@ -6,7 +6,8 @@ public enum CreatureType
 {
     Zombie,
     Werewolf,
-    SeaMonster
+    SeaMonster,
+    Yelsha
 }
 
 public class Woofers : MonoBehaviour {
@@ -77,6 +78,10 @@ public class Woofers : MonoBehaviour {
     private void DealDamage()
     {
         FindObjectOfType<GameState>().DealDamage(Current_HP);
+        if(this.type == CreatureType.Yelsha)
+        {
+            FindObjectOfType<GameState>().GameLost = true;
+        }
         Destroy(this.gameObject);
     }
 

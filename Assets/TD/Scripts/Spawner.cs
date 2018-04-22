@@ -16,10 +16,10 @@ public class Spawner : MonoBehaviour {
     public GameObject ZombieMonster;
     public GameObject SeamanMonster;
     public GameObject WerewolfMonster;
+    public GameObject YelshaMonster;
 
     public bool IsSpawning = false;
     private int frameCount = 0;
-    private int spawnSpeed = 20;
 
     [SerializeField]
     private int zombiSpawnRate = 12;
@@ -51,6 +51,8 @@ public class Spawner : MonoBehaviour {
                 tempType = CreatureType.SeaMonster;
             else if (i.Value == 2)
                 tempType = CreatureType.Werewolf;
+            else if (i.Value == 3)
+                tempType = CreatureType.Yelsha;
 
             spawnDictionnary.Add(i.Key, tempType);
         }
@@ -76,6 +78,10 @@ public class Spawner : MonoBehaviour {
                     case CreatureType.Zombie:
                         var tempZombie = Instantiate(ZombieMonster, ZombieSpawnPoint.transform.position, Quaternion.identity);
                         tempZombie.GetComponent<Woofers>().path = ZombiePath;
+                        break;
+                    case CreatureType.Yelsha:
+                        var tempYelsha = Instantiate(YelshaMonster, WooferSpawnPoint.transform.position, Quaternion.identity);
+                        tempYelsha.GetComponent<Woofers>().path = WooferPath;
                         break;
                 }
             }
