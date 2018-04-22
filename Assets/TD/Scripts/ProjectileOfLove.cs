@@ -43,7 +43,7 @@ public class ProjectileOfLove : MonoBehaviour {
         var target_y = target.transform.position.y;
         if(CloseEnough(pos_x, pos_y, target_x, target_y))
         {
-            target.GetComponent<Woofers>().ReceiveDamage(3 * (state.Combo / 100));
+            target.GetComponent<Woofers>().ReceiveDamage(6 * (state.Combo / 50));
             GameObject.Instantiate(HitGFX, target.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
