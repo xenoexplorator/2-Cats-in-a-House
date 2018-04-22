@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -37,6 +36,7 @@ public class Spawner : MonoBehaviour {
     {
         SpawnList = new List<CreatureType>();
         FillSpawnList();
+        
     }
 
     private void FillSpawnList()
@@ -84,4 +84,24 @@ public class Spawner : MonoBehaviour {
             }
         }
 	}
+
+    public void SpawnRandom()
+    {
+        var toSpawn = Random.Range(0, 3);
+        switch (toSpawn)
+        {
+            case 0:
+                var tempSeaman = Instantiate(SeamanMonster, SeamanSpawnPoint.transform.position, Quaternion.identity);
+                tempSeaman.GetComponent<Woofers>().path = SeamanPath;
+                break;
+            case 1:
+                var tempWerewolf = Instantiate(WerewolfMonster, WooferSpawnPoint.transform.position, Quaternion.identity);
+                tempWerewolf.GetComponent<Woofers>().path = WooferPath;
+                break;
+            case 2:
+                var tempZombie = Instantiate(ZombieMonster, ZombieSpawnPoint.transform.position, Quaternion.identity);
+                tempZombie.GetComponent<Woofers>().path = ZombiePath;
+                break;
+        }
+    }
 }

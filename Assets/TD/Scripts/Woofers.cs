@@ -22,6 +22,7 @@ public class Woofers : MonoBehaviour {
     public int Max_HP;
     private int Current_HP;
     public List<GameObject> targetedBy;
+    public bool IsMoving = true;
 
     [Header("Animation")]
 
@@ -89,17 +90,20 @@ public class Woofers : MonoBehaviour {
 
     private void Walk(float pos_x, float pos_y, float target_x, float target_y)
     {
-        Vector2 movement = new Vector2(target_x - pos_x, target_y - pos_y).normalized * (speed *(speed_Modifier/100));
-        if(visuals != null)
+        if (IsMoving)
         {
-            var goingLeft = target_x - pos_x > 0;
-            // Flipping visuals
-            if((visuals.localScale.x < 0 && goingLeft) || (visuals.localScale.x > 0 && !goingLeft))
+            Vector2 movement = new Vector2(target_x - pos_x, target_y - pos_y).normalized * (speed * (speed_Modifier / 100));
+            if (visuals != null)
             {
-                visuals.localScale = new Vector3(visuals.localScale.x * -1, visuals.localScale.y, visuals.localScale.z);
+                var goingLeft = target_x - pos_x > 0;
+                // Flipping visuals
+                if ((visuals.localScale.x < 0 && goingLeft) || (visuals.localScale.x > 0 && !goingLeft))
+                {
+                    visuals.localScale = new Vector3(visuals.localScale.x * -1, visuals.localScale.y, visuals.localScale.z);
+                }
             }
+            transform.position = new Vector3(pos_x + movement.x, pos_y + movement.y, pos_y + movement.y);
         }
-        transform.position = new Vector3(pos_x + movement.x, pos_y + movement.y, pos_y + movement.y);
     }
 
     public void IncreaseSlow()

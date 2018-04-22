@@ -41,14 +41,13 @@ public class Rythm : MonoBehaviour {
                 gameState.Dancer.ChangeDancingState(false);
                 Destroy(incoming[i].Dequeue().gameObject);
 				gameState.Combo = 100;
-				//gameState.SpawnMonster();
+				gameState.SpawnMonster();
 			}
 			if (incoming[i].Count > 0 && Input.GetKeyDown(keys[i])) {
 				var nextStep = incoming[i].Peek();
 				var accuracy = Math.Abs(nextStep.PositionY - transform.position.y);
 				if (accuracy < 0.5) {
                     gameState.Dancer.ChangeDancingState(true);
-					gameState.Currency += 100;
 					gameState.Combo += 5;
 					Destroy(incoming[i].Dequeue().gameObject);
 				}
@@ -76,4 +75,10 @@ public class Rythm : MonoBehaviour {
 		tickCount = 0;
 		music.Play();
 	}
+
+    void GameOver()
+    {
+        playing = false;
+        music.Stop();
+    }
 }
