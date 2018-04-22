@@ -2599,6 +2599,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 212608615266243522, guid: ff6a2b6dc62cdaa41917b452185f72d6,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff6a2b6dc62cdaa41917b452185f72d6, type: 2}
   m_IsPrefabParent: 0
@@ -3330,6 +3335,7 @@ MonoBehaviour:
   BlackScreen: {fileID: 1792263517}
   _dancer: {fileID: 489318760}
   defensePoints: 100
+  WinGameNow: 0
 --- !u!4 &1830467535
 Transform:
   m_ObjectHideFlags: 0
