@@ -1,20 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartWave : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Text thisText;
 
-    public void OnMouseDown()
+    public void StartWaveNow()
     {
         foreach(GameObject tower in GameObject.FindGameObjectsWithTag("Tower"))
         {
@@ -23,5 +16,10 @@ public class StartWave : MonoBehaviour {
         GameObject.FindObjectOfType<Spawner>().IsSpawning = true;
         GameObject.FindGameObjectWithTag("InputField").SendMessage("StartMusic");
         GameObject.FindObjectOfType<boardScript>().IsMoving = true;
+        foreach (GameObject button in GameObject.FindGameObjectsWithTag("Button"))
+        {
+            button.GetComponent<Button>().interactable = false;
+        }
+        thisText.color = Color.black;
     }
 }

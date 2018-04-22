@@ -12,6 +12,7 @@ TagManager:
   - Monster
   - Spawner
   - InputField
+  - Button
   layers:
   - Default
   - TransparentFX
