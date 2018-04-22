@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -67,12 +68,22 @@ public class Woofers : MonoBehaviour {
 
     private void OnDestroy()
     {
+        if(type == CreatureType.Yelsha)
+        {
+            WinTheGame();
+            return;
+        }
         foreach(GameObject g in targetedBy)
         {
             g.SendMessage("RemoveTarget", this.gameObject);
         }
 
         this.StopAllCoroutines();
+    }
+
+    private void WinTheGame()
+    {
+        FindObjectOfType<GameState>().WinTheGame();
     }
 
     private void DealDamage()

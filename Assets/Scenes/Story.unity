@@ -794,7 +794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisObject: {fileID: 971719263}
   isStarted: 0
-  fadeSpeed: 0.0005
+  fadeSpeed: 0.002
 --- !u!1 &1215096390
 GameObject:
   m_ObjectHideFlags: 0

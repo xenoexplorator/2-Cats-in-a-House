@@ -42,6 +42,8 @@ public class GameState : MonoBehaviour
     }
 
     private Spawner spawner;
+    private bool GameWon = false;
+    public bool WinGameNow = false;
 
     private void Start()
     {
@@ -64,13 +66,38 @@ public class GameState : MonoBehaviour
 
     private void Update()
     {
+        if (WinGameNow)
+        {
+            WinTheGame();
+            WinGameNow = false;
+                }
         if (GameLost)
             GameOver();
+        if(GameWon)
+            if(BlackScreen.GetComponent<FadeScreenToBlack>() == null)
+            {
+                SceneManager.LoadScene("Victory");
+            }
     }
 
     private void TriggerPenalty()
     {
 
+    }
+
+    public void WinTheGame()
+    {
+        foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower"))
+        {
+            tower.GetComponent<CircleCollider2D>().enabled = false;
+        }
+        foreach (GameObject monster in GameObject.FindGameObjectsWithTag("Monster"))
+        {
+            monster.GetComponent<Woofers>().IsMoving = false;
+        }
+        BlackScreen.active = true;
+        BlackScreen.GetComponent<FadeScreenToBlack>().isStarted = true;
+        GameWon = true;
     }
 
     private void GameOver()

@@ -3329,7 +3329,7 @@ MonoBehaviour:
   GameOverText: {fileID: 1811502022}
   BlackScreen: {fileID: 1792263517}
   _dancer: {fileID: 489318760}
-  defensePoints: 1000000
+  defensePoints: 100
 --- !u!4 &1830467535
 Transform:
   m_ObjectHideFlags: 0
