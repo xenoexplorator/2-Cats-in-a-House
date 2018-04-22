@@ -8,19 +8,34 @@ public class ProjectileOfLove : MonoBehaviour {
     private float epsilon = 0.01f;
     public float speed = 0.03f;
     private GameState state;
+    private bool isDestroyed;
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    private ParticleSystem emitter;
+
+    [SerializeField]
+    private GameObject HitGFX;
+
+    // Use this for initialization
+    void Start () {
         state = FindObjectOfType<GameState>();
+        isDestroyed = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (target == null)
+        if(isDestroyed)
         {
-            Destroy(this.gameObject);
             return;
         }
+
+        if (target == null)
+        {
+            StartCoroutine(WaitForEmiiterAndDestroy());
+            return;
+        }
+
+        transform.LookAt(target.transform);
 
         var pos_x = transform.position.x;
         var pos_y = transform.position.y;
@@ -29,6 +44,7 @@ public class ProjectileOfLove : MonoBehaviour {
         if(CloseEnough(pos_x, pos_y, target_x, target_y))
         {
             target.GetComponent<Woofers>().ReceiveDamage(3 * (state.Combo / 100));
+            GameObject.Instantiate(HitGFX, target.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
         else
@@ -49,5 +65,19 @@ public class ProjectileOfLove : MonoBehaviour {
             return true;
         else
             return false;
+    }
+
+    public IEnumerator WaitForEmiiterAndDestroy()
+    {
+        if (emitter != null)
+        {
+            emitter.Stop();
+            while (emitter.IsAlive(true))
+            {
+                yield return true;
+            }
+        }
+
+        Destroy(this.gameObject);
     }
 }

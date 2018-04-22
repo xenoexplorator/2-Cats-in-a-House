@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tower_Hope : MonoBehaviour {
 
     private List<GameObject> targets;
-    public SpriteRenderer projectile;
+    public ParticleSystem projectile;
     public CircleCollider2D threatZone;
     private GameState state;
 
@@ -16,14 +16,15 @@ public class Tower_Hope : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        if(targets.Count > 0)
+	void Update ()
+    {
+        if(targets.Count > 0 && !projectile.isPlaying)
         {
-            projectile.enabled = true;
+            projectile.Play();
         }
-        else
+        else if(targets.Count <= 0)
         {
-            projectile.enabled = false;
+            projectile.Stop();
         }
 
         threatZone.radius = 1 + (1 * (state.Combo / 100f));

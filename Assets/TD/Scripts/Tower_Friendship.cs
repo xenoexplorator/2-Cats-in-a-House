@@ -7,7 +7,7 @@ public class Tower_Friendship : MonoBehaviour {
     private List<GameObject> targets;
     private int clock = 0;
     private int attackSpeed = 30;
-    public GameObject projectile;
+    public List<ParticleSystem> projectiles;
     public CircleCollider2D threatZone;
     private GameState state;
 
@@ -54,7 +54,11 @@ public class Tower_Friendship : MonoBehaviour {
     {
         foreach(GameObject g in targets)
         {
-            Instantiate(projectile, transform);
+            foreach(var particleSystem in projectiles)
+            {
+                particleSystem.Play();
+            }
+
             g.GetComponent<Woofers>().ReceiveDamage(1);
         }
     }
