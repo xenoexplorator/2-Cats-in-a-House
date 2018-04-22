@@ -7,8 +7,13 @@ public class StartWave : MonoBehaviour {
 
     public Text thisText;
 
+    [SerializeField]
+    private GameState state;
+
     public void StartWaveNow()
     {
+        state.Dancer.ToggleBuildPhase(false);
+
         foreach(GameObject tower in GameObject.FindGameObjectsWithTag("Tower"))
         {
             tower.GetComponent<CircleCollider2D>().enabled = true;

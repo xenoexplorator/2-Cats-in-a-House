@@ -9,6 +9,14 @@ public class GameState : MonoBehaviour {
 	public Text willpower;
 	public Text force;
 
+    [SerializeField]
+    private Dancer _dancer;
+
+    public Dancer Dancer
+    {
+        get { return _dancer; }
+    }
+
 	private int currency = 0;
 	public int Currency {
 		get { return currency; }

@@ -115,6 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4449652800420726}
   - component: {fileID: 95364565777653684}
+  - component: {fileID: 114703533492147302}
   m_Layer: 0
   m_Name: Ashley
   m_TagString: Untagged
@@ -296,7 +297,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1569348698918692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.52, y: -0.35133564, z: 0}
+  m_LocalPosition: {x: -9.58, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4936641530772940}
@@ -416,6 +417,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114703533492147302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569348698918692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e79d85ea9b402746925b96d197e106d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dancerAnim: {fileID: 95364565777653684}
+  dancingStateName: Dancing
+  buildPhaseStateName: InBuildPhase
 --- !u!212 &212020614652038432
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -657,7 +672,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 616163867
   m_SortingLayer: -1
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ab26ed2cbb344de4fb49a7910d000fec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

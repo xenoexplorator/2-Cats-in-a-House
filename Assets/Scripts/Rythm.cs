@@ -38,7 +38,8 @@ public class Rythm : MonoBehaviour {
 		}
 		for (int i = 0; i < 4; i++) {
 			while (incoming[i].Count > 0 && incoming[i].Peek().PositionY >= transform.position.y+2) {
-				Destroy(incoming[i].Dequeue().gameObject);
+                gameState.Dancer.ChangeDancingState(false);
+                Destroy(incoming[i].Dequeue().gameObject);
 				gameState.Combo = 100;
 				//gameState.SpawnMonster();
 			}
@@ -46,6 +47,7 @@ public class Rythm : MonoBehaviour {
 				var nextStep = incoming[i].Peek();
 				var accuracy = Math.Abs(nextStep.PositionY - transform.position.y);
 				if (accuracy < 0.5) {
+                    gameState.Dancer.ChangeDancingState(true);
 					gameState.Currency += 100;
 					gameState.Combo += 5;
 					Destroy(incoming[i].Dequeue().gameObject);
