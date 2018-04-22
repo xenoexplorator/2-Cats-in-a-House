@@ -6,10 +6,16 @@ using UnityEngine.UI;
 
 public class GameState : MonoBehaviour {
 	private int currency = 0;
-    public int Currency { get { return 0; } set { currency = value; force.text = currency.ToString(); } }
+    public int Currency {
+		 get { return currency; }
+		 set { currency = value; force.text = currency.ToString(); }
+	 }
     public int defensePoints = 100;
-    public int DefensePoints { get { return defensePoints; } set { defensePoints = value; willpower.text = DefensePoints.ToString(); } }
-    private int combo = 0;
+    public int DefensePoints {
+		 get { return defensePoints; }
+		 set { defensePoints = value; willpower.text = DefensePoints.ToString(); }
+	 }
+    private int combo = 100;
     public int Combo {
         get { return combo; }
         set { combo = value; powerLevel.text = combo.ToString(); }
