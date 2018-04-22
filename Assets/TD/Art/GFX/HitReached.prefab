@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4066807370222606}
   - component: {fileID: 198125710869656716}
   - component: {fileID: 199909789989330922}
+  - component: {fileID: 114180887205288928}
   m_Layer: 0
   m_Name: HitReached
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -74.94601, y: 0, z: 0}
+--- !u!114 &114180887205288928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746310934812232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7071e72b07eceb4abd485b1ed4a5d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TTL: 200
 --- !u!198 &198125710869656716
 ParticleSystem:
   m_ObjectHideFlags: 1

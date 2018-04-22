@@ -104,12 +104,12 @@ public class Woofers : MonoBehaviour {
 
     public void IncreaseSlow()
     {
-        speed_Modifier = (speed_Modifier * 0.8f);
+        speed_Modifier = (speed_Modifier * 0.7f);
     }
 
     public void DecreaseSlow()
     {
-        speed_Modifier = (speed_Modifier / 0.8f);
+        speed_Modifier = (speed_Modifier / 0.7f);
     }
 
     public bool ReceiveDamage(int damage)

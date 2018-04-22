@@ -9,19 +9,29 @@ public class AddTurretButton : MonoBehaviour {
     private GameObject SpriteThatFollowsTheMouse;
     private bool InPlacingMode = false;
     private bool DropIsValid = false;
+    public int TurretCost;
     private GameObject CurrentlyPointedTile;
+    private GameState state;
+
+    void Start()
+    {
+        state = FindObjectOfType<GameState>();
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && InPlacingMode && DropIsValid)
         {
-
-            var instancePosition = new Vector3(SpriteThatFollowsTheMouse.transform.position.x, SpriteThatFollowsTheMouse.transform.position.y, SpriteThatFollowsTheMouse.transform.position.y);
-            Instantiate(ToCreateOnClick, instancePosition, Quaternion.identity);
-            Destroy(CurrentlyPointedTile);
-            CurrentlyPointedTile = null;
-            DropOutOfPlacingMode();
+            if (state.Currency >= TurretCost)
+            {
+                var instancePosition = new Vector3(SpriteThatFollowsTheMouse.transform.position.x, SpriteThatFollowsTheMouse.transform.position.y, SpriteThatFollowsTheMouse.transform.position.y);
+                Instantiate(ToCreateOnClick, instancePosition, Quaternion.identity);
+                Destroy(CurrentlyPointedTile);
+                CurrentlyPointedTile = null;
+                DropOutOfPlacingMode();
+                state.Currency -= TurretCost;
+            }
         }
         if (Input.GetMouseButtonDown(1) && InPlacingMode) DropOutOfPlacingMode();
     }

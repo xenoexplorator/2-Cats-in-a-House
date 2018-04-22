@@ -17,7 +17,7 @@ public class GameState : MonoBehaviour {
         get { return _dancer; }
     }
 
-	private int currency = 0;
+	private int currency = 200;
 	public int Currency {
 		get { return currency; }
 		set { currency = value; force.text = currency.ToString(); }
