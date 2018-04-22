@@ -6,10 +6,13 @@ public class Tower_Hope : MonoBehaviour {
 
     private List<GameObject> targets;
     public SpriteRenderer projectile;
+    public CircleCollider2D threatZone;
+    private GameState state;
 
     // Use this for initialization
     void Start () {
         targets = new List<GameObject>();
+        state = FindObjectOfType<GameState>();
     }
 	
 	// Update is called once per frame
@@ -22,6 +25,8 @@ public class Tower_Hope : MonoBehaviour {
         {
             projectile.enabled = false;
         }
+
+        threatZone.radius = 1 + (1 * (state.Combo / 100f));
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -8,11 +8,19 @@ public class Tower_Friendship : MonoBehaviour {
     private int clock = 0;
     private int attackSpeed = 30;
     public GameObject projectile;
+    public CircleCollider2D threatZone;
+    private GameState state;
 
     // Use this for initialization
     void Start()
     {
         targets = new List<GameObject>();
+        state = FindObjectOfType<GameState>();
+    }
+
+    private void Update()
+    {
+        threatZone.radius = 1 + (1 * (state.Combo / 100f));
     }
 
     // Update is called once per frame
