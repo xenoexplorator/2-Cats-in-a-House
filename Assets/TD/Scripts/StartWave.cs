@@ -22,5 +22,6 @@ public class StartWave : MonoBehaviour {
         }
         GameObject.FindObjectOfType<Spawner>().IsSpawning = true;
         GameObject.FindGameObjectWithTag("InputField").SendMessage("StartMusic");
+        GameObject.FindObjectOfType<boardScript>().IsMoving = true;
     }
 }
