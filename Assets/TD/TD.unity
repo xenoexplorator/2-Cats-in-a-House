@@ -1817,20 +1817,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1258375892800726, guid: fb7b5546d96456a4191c054c4ae20f5b, type: 2}
-      propertyPath: m_TagString
-      value: InputField
-      objectReference: {fileID: 0}
-    - target: {fileID: 82854078889999324, guid: fb7b5546d96456a4191c054c4ae20f5b,
+    - target: {fileID: 114984238991020174, guid: fb7b5546d96456a4191c054c4ae20f5b,
         type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82854078889999324, guid: fb7b5546d96456a4191c054c4ae20f5b,
-        type: 2}
-      propertyPath: Mute
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: gameState
+      value: 
+      objectReference: {fileID: 1830467534}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb7b5546d96456a4191c054c4ae20f5b, type: 2}
   m_IsPrefabParent: 0
@@ -2784,10 +2775,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970bc70fe327d654b9403cb14e73b334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defensePoints: 100
   powerLevel: {fileID: 371176233}
   willpower: {fileID: 1659401025}
   force: {fileID: 985857688}
+  defensePoints: 100
 --- !u!4 &1830467535
 Transform:
   m_ObjectHideFlags: 0

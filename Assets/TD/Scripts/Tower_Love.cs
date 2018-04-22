@@ -9,14 +9,22 @@ public class Tower_Love : MonoBehaviour {
     public GameObject bullet;
     private int clock = 0;
     private int attackSpeed = 30;
+    private GameState state;
+    public CircleCollider2D threatZone;
 
 	// Use this for initialization
 	void Start () {
         targets = new List<GameObject>();
+        state = FindObjectOfType<GameState>();
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    private void Update()
+    {
+        threatZone.radius = 1 + (1 * ((100 + state.Combo) / 100));
+    }
+
+    // Update is called once per frame
+    void FixedUpdate () {
 		if((targets.Count > 0) && (clock % attackSpeed == 0))
         {
             clock = 0;

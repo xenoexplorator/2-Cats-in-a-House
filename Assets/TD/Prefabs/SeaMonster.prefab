@@ -443,7 +443,7 @@ MonoBehaviour:
   Max_HP: 15
   targetedBy: []
   animationCrtl: {fileID: 95888993573242712}
-  visuals: {fileID: 0}
+  visuals: {fileID: 4054965935441152}
   deathAnimationTriggerName: OnDeath
 --- !u!114 &114358013038219774
 MonoBehaviour:
