@@ -20,12 +20,12 @@ public class Rythm : MonoBehaviour {
 		Quaternion.AngleAxis(0, Vector3.forward),
 		Quaternion.AngleAxis(270, Vector3.forward)
 	};
-	private Dictionary<int,char> stepChart;
+	private Dictionary<int,int> stepChart;
 	private bool playing;
 	private AudioSource music;
 
 	void Start() {
-		stepChart = ChartLoader.LoadChart(chartFile, 6.1f);
+		stepChart = ChartLoader.LoadChart(chartFile);
 		music = GetComponent<AudioSource>();
 		for (int i = 0; i < 4; i++) {
 			incoming[i] = new Queue<Step>();
@@ -34,11 +34,12 @@ public class Rythm : MonoBehaviour {
 	
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			Debug.Log("step:" + Math.Round(tickCount / 6.1));
+			Debug.Log("step:" + tickCount);
 		}
 		for (int i = 0; i < 4; i++) {
 			while (incoming[i].Count > 0 && incoming[i].Peek().PositionY >= transform.position.y+2) {
 				Destroy(incoming[i].Dequeue().gameObject);
+				gameState.Combo = 100;
 				//gameState.SpawnMonster();
 			}
 			if (incoming[i].Count > 0 && Input.GetKeyDown(keys[i])) {
@@ -46,6 +47,7 @@ public class Rythm : MonoBehaviour {
 				var accuracy = Math.Abs(nextStep.PositionY - transform.position.y);
 				if (accuracy < 0.5) {
 					gameState.Currency += 100;
+					gameState.Combo += 5;
 					Destroy(incoming[i].Dequeue().gameObject);
 				}
 			}
@@ -54,18 +56,17 @@ public class Rythm : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (!playing) return;
-		tickCount++;
-		char place;
-		if (stepChart.TryGetValue(tickCount + 116, out place)) {
-			int index = place - '1';
+		int index;
+		if (stepChart.TryGetValue(tickCount + 125, out index)) {
 			var posX = transform.position.x - 3f + index * 2.0f;
 			var step = Instantiate<Step>(
 					stepPrefab,
-					new Vector3(posX, transform.position.y - 9.28f, 0),
+					new Vector3(posX, transform.position.y - 10f, 0),
 					rotations[index],
 					transform);
 			incoming[index].Enqueue(step);
 		}
+		tickCount++;
 	}
 
 	void StartMusic() {
