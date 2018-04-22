@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1497298908293574, guid: 0480b192a0b28b846b9fa71d5f1459f5, type: 2}
+  threatZone: {fileID: 58870146038024168}
 --- !u!114 &114600889640594314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3485,7 +3486,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 616163867
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 84070d515aee9e84fa17ff9975818d3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
