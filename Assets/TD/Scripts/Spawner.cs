@@ -30,57 +30,54 @@ public class Spawner : MonoBehaviour {
     [SerializeField]
     private int werewolfSpawnRate = 16;
 
-    List<CreatureType> SpawnList;
+    [SerializeField]
+    private TextAsset waveFile;
+    Dictionary<int, CreatureType> spawnDictionnary;
 
     void Start()
     {
-        SpawnList = new List<CreatureType>();
+        spawnDictionnary = new Dictionary<int, CreatureType>();
         FillSpawnList();
         
     }
 
     private void FillSpawnList()
     {
-        SpawnList.Add(CreatureType.SeaMonster);
-        SpawnList.Add(CreatureType.SeaMonster);
-        SpawnList.Add(CreatureType.SeaMonster);
-        SpawnList.Add(CreatureType.SeaMonster);
-        SpawnList.Add(CreatureType.SeaMonster);
+        foreach(var i in ChartLoader.LoadWave(waveFile))
+        {
+            CreatureType tempType = CreatureType.Zombie;
 
-        SpawnList.Add(CreatureType.Werewolf);
-        SpawnList.Add(CreatureType.Werewolf);
-        SpawnList.Add(CreatureType.Werewolf);
+            if (i.Value == 1)
+                tempType = CreatureType.SeaMonster;
+            else if (i.Value == 2)
+                tempType = CreatureType.Werewolf;
 
-        for (int i = 0; i < 20; i++)
-            SpawnList.Add(CreatureType.Zombie);
+            spawnDictionnary.Add(i.Key, tempType);
+        }
     }
 
     void FixedUpdate () {
         if (IsSpawning)
         {
             frameCount++;
-            if ((frameCount % spawnSpeed == 0) && (SpawnList.Count > 0))
+            CreatureType typeToSpawn;
+            if (spawnDictionnary.TryGetValue(frameCount, out typeToSpawn))
             {
-                switch (SpawnList.First())
+                switch (typeToSpawn)
                 {
                     case CreatureType.SeaMonster:
-                        spawnSpeed = seaMonsterSpawnRate;
                         var tempSeaman = Instantiate(SeamanMonster, SeamanSpawnPoint.transform.position, Quaternion.identity);
                         tempSeaman.GetComponent<Woofers>().path = SeamanPath;
                         break;
                     case CreatureType.Werewolf:
-                        spawnSpeed = werewolfSpawnRate;
                         var tempWerewolf = Instantiate(WerewolfMonster, WooferSpawnPoint.transform.position, Quaternion.identity);
                         tempWerewolf.GetComponent<Woofers>().path = WooferPath;
                         break;
                     case CreatureType.Zombie:
-                        spawnSpeed = zombiSpawnRate;
                         var tempZombie = Instantiate(ZombieMonster, ZombieSpawnPoint.transform.position, Quaternion.identity);
                         tempZombie.GetComponent<Woofers>().path = ZombiePath;
                         break;
                 }
-                SpawnList.RemoveAt(0);
-                frameCount = 0;
             }
         }
 	}

@@ -87,6 +87,6 @@ public class GameState : MonoBehaviour
         GameOverText.GetComponent<FadeFromBlack>().isStarted = true;
         BlackScreen.active = true;
         BlackScreen.GetComponent<FadeScreenToBlack>().isStarted = true;
-        FindObjectOfType<Rythm>();
+        FindObjectOfType<Rythm>().GameOver();
     }
 }

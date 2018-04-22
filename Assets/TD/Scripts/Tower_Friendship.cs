@@ -6,7 +6,7 @@ public class Tower_Friendship : MonoBehaviour {
 
     private List<GameObject> targets;
     private int clock = 0;
-    private int attackSpeed = 30;
+    private int attackSpeed = 90;
     public List<ParticleSystem> projectiles;
     public CircleCollider2D threatZone;
     private GameState state;

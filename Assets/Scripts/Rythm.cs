@@ -76,7 +76,7 @@ public class Rythm : MonoBehaviour {
 		music.Play();
 	}
 
-    void GameOver()
+    public void GameOver()
     {
         playing = false;
         music.Stop();
