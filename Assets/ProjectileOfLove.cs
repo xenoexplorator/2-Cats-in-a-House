@@ -7,11 +7,12 @@ public class ProjectileOfLove : MonoBehaviour {
     public GameObject target;
     private float epsilon = 0.01f;
     public float speed = 0.03f;
+    private GameState state;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        state = FindObjectOfType<GameState>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,7 +28,7 @@ public class ProjectileOfLove : MonoBehaviour {
         var target_y = target.transform.position.y;
         if(CloseEnough(pos_x, pos_y, target_x, target_y))
         {
-            target.GetComponent<Woofers>().ReceiveDamage(3);
+            target.GetComponent<Woofers>().ReceiveDamage(3 * (state.Combo / 100));
             Destroy(this.gameObject);
         }
         else

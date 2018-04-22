@@ -20,7 +20,7 @@ public class Tower_Love : MonoBehaviour {
 
     private void Update()
     {
-        threatZone.radius = 1 + (1 * ((100 + state.Combo) / 100));
+        threatZone.radius = 1 + (1 * (state.Combo / 100f));
     }
 
     // Update is called once per frame
