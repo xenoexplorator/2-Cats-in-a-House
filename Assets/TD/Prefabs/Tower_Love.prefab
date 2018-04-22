@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4873344469260678}
   - component: {fileID: 114614143956599992}
   - component: {fileID: 58171833054282012}
+  - component: {fileID: 114056623402935770}
   m_Layer: 0
   m_Name: Tower_Love
   m_TagString: Tower
@@ -86,6 +87,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &114056623402935770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1552609965905480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680e71c3c67187b4583f5eb21c01a209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114614143956599992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,7 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26154939d14fd8d42bbbde6e59011909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 58171833054282012}
   bullet: {fileID: 1767002721983834, guid: 86f99f13a5d6ae54a84ef89f9cb838b2, type: 2}
 --- !u!212 &212066714309366848
 SpriteRenderer:
@@ -128,8 +139,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 616163867
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8334cf4d98118c948a400e54269ca6ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 50194925899428008}
   - component: {fileID: 58329584574172386}
   - component: {fileID: 95771289277067368}
+  - component: {fileID: 114907026073946284}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Monster
@@ -234,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819877680923170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.12, y: -2.73, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4749790529238942}
@@ -354,6 +355,17 @@ MonoBehaviour:
   animationCrtl: {fileID: 95771289277067368}
   visuals: {fileID: 4749790529238942}
   deathAnimationTriggerName: OnDeath
+--- !u!114 &114907026073946284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1819877680923170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680e71c3c67187b4583f5eb21c01a209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212005751334711522
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -383,8 +395,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 616163867
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a7717775113cc334c88d246cd9caef8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -425,8 +437,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 616163867
+  m_SortingLayer: -1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: a0dc17b64a8c7d846b6ff9739203736a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -467,8 +479,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 616163867
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a4838476d83fa3e41b574ca12bbd0180, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -509,8 +521,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 616163867
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1f5b2a7f2a923fc46b1a48f211c5532d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -551,8 +563,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 616163867
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 491e8cfada269e54aa4d7e745011b7bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -593,8 +605,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 616163867
+  m_SortingLayer: -1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ad4ddc40aa55c9b4b807412c42a99547, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -635,8 +647,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 616163867
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1fa65da2436ae1649975eed8c2ce6f7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
