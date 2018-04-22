@@ -292,6 +292,7 @@ MonoBehaviour:
   Max_HP: 10
   targetedBy: []
   animationCrtl: {fileID: 95314763162299424}
+  visuals: {fileID: 4522328165716742}
   deathAnimationTriggerName: OnDeath
 --- !u!212 &212534896790274360
 SpriteRenderer:

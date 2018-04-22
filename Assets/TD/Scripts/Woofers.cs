@@ -11,6 +11,8 @@ public enum CreatureType
 
 public class Woofers : MonoBehaviour {
 
+    private static float DEATH_ANIM_TIMEOUT = 3f;
+
     public PathList path;
     private int targetNode = 0;
     public float speed = 0.018f;
@@ -67,6 +69,8 @@ public class Woofers : MonoBehaviour {
         {
             g.SendMessage("RemoveTarget", this.gameObject);
         }
+
+        this.StopAllCoroutines();
     }
 
     private void DealDamage()
@@ -134,7 +138,20 @@ public class Woofers : MonoBehaviour {
             collider.enabled = false;
         }
 
+        this.StartCoroutine(TimeoutDeathAnim());
         animationCrtl.SetTrigger(deathAnimationTriggerName);
+    }
+
+    private IEnumerator TimeoutDeathAnim()
+    {
+        var timer = 0f;
+        while(timer < DEATH_ANIM_TIMEOUT)
+        {
+            timer += Time.deltaTime;
+            yield return false;
+        }
+
+        Debug.LogWarning("Ennemy '" + gameObject.name + "' death animation timed out - animation probably misses its 'OnDeathAnimDone' event");
     }
 
     private void OnDeathAnimDone()
