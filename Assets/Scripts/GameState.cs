@@ -2,17 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameState : MonoBehaviour {
-	public int Currency = 0;
-    public int DefensePoints = 100;
-    public int Combo = 0;
+	private int currency = 0;
+    public int Currency { get { return 0; } set { currency = value; force.text = currency.ToString(); } }
+    public int defensePoints = 100;
+    public int DefensePoints { get { return defensePoints; } set { defensePoints = value; willpower.text = DefensePoints.ToString(); } }
+    private int combo = 0;
+    public int Combo {
+        get { return combo; }
+        set { combo = value; powerLevel.text = combo.ToString(); }
+    }
 
-	void Start () {
-	}
-	
-	void Update () {
-	}
+    public Text powerLevel;
+    public Text willpower;
+    public Text force;
 
 	public void SpawnMonster() {
 		Debug.Log("Rraargh!");
@@ -21,13 +26,7 @@ public class GameState : MonoBehaviour {
     public void DealDamage(int damage)
     {
         DefensePoints = DefensePoints - damage;
-        UpdateLifeBar();
         TriggerPenalty();
-    }
-
-    private void UpdateLifeBar()
-    {
-        
     }
 
     private void TriggerPenalty()
